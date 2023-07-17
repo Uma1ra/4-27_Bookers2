@@ -32,7 +32,7 @@
                 <%= link_to "Users", "/", class: "nav-link text-light" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Books", "/", class: "nav-link text-light" %>
+                <%= link_to "Books", books_path, class: "nav-link text-light" %>
               </li>
               <li class="nav-item">
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link text-light" %>
@@ -57,25 +57,20 @@
 
         </div>
       </nav>
-
     </header>
-    <main>
-      <p id="notice"></p>
-
-      <div class="container">
+    
+    <main><%= yield %></main>
+    
+    
+    <footer>
+      <div class="container mt-5">
         <div class="row">
-          <div class="col-md-3">
-            <h2>User info</h2>
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
           </div>
-
-          <div class="col-md-8 offset-md-1">
-            <%= yield %>
-          </div>
-
         </div>
       </div>
-
-    </main>
+    </footer>
 
   </body>
 </html>
