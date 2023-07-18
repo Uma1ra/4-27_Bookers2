@@ -1,35 +1,31 @@
-<div class="container mx-auto">
+<div class="container">
   <div class="row">
     <div class="col-md-3">
-
-      <div>
-        <%= render "books/userinfo", userinfo: @show_user, new_book: @new_book %>
-      </div>
-      
+      <%= render "books/userinfo", userinfo: current_user, new_book: @new_book %>
     </div>
-      
+    
     <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
+      <h2>Users</h2>
 
       <table class="table">
         <thead>
           <tr>
+            <th>image</th>
+            <th>name</th>
             <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
           </tr>
         </thead>
         <tbody>
-          <% @show_user.books.each do |book| %>
+          <% @users.each do |user| %>
             <tr>
               <td>
-                <%= image_tag book.user.get_profile_image(80,80)%>
+                <%= image_tag user.get_profile_image(80,80)%>
               </td>
               <td>
-                <%= link_to book.title, book_path(book.id) %>
+                <%= user.name %>
               </td>
               <td>
-                <%= book.body %>
+                <%= link_to "Show", user_path(user.id) %>
               </td>
             </tr>
           <% end %>
