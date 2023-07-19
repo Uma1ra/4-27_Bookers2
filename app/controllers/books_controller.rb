@@ -7,6 +7,7 @@ class BooksController < ApplicationController
 
   def create
     @new_book = Book.new(book_params)
+    @new_book.user_id = current_user.id 
     @books = Book.all
 
     if @new_book.save
@@ -58,7 +59,7 @@ class BooksController < ApplicationController
   def is_matching_login_user
     book = Book.find(params[:id])
     unless book.user_id == current_user.id
-      redirect_to books_path
+      redirect_to book_path(current_user.id)
     end
   end
 

@@ -14,9 +14,9 @@
 </table>
 
 <div class="row mt-5">
-  <%= link_to edit_user_path(userinfo.id), class: "btn btn-outline-secondary btn-block edit-user-btn" do %>
-    <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
-  <% end %>
+    <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block edit-user-btn" do %>
+      <i class="fa-solid fa-user-cog" aria-hidden="true"></i>
+    <% end %>
 </div>  
 
 <h2 class="my-3">New book</h2>
